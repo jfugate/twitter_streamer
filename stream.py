@@ -28,7 +28,7 @@ def set_creds():
 def stream_setup():
 	api = set_creds()
 	myStreamListener = MyStreamListener()
-	myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener())
+	myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 	return myStream
 
 def stream_follow(key_word, thread=False):
@@ -44,7 +44,7 @@ def parse_arguments():
 	results = parser.parse_args()
 	#We always want a keyword
 	if results.key_word:
-		stream_follow(key_word)
+		stream_follow(results.key_word)
 	else:
 		parser.print_help()
 
